@@ -38,9 +38,14 @@ class View(ft.UserControl):
         self._page.controls.append(ft.Row([self._btnAnalizzaOggetti, self._txtIdOggetto, self._btnCompConnessa],
                                           alignment=ft.MainAxisAlignment.CENTER))
 
+        self._ddLun=ft.Dropdown(label="Lunghezza")
+        self._btnCercaPercorso=ft.ElevatedButton(text="Cerca Oggeti",on_click=self._controller.handleCercaPercorso)
+        row2=ft.Row([self._ddLun, self._btnCercaPercorso])
+        self._page.controls.append(row2)
+
         # List View where the reply is printed
-        self.txt_result = ft.ListView(expand=1, spacing=10, padding=20, auto_scroll=True)
-        self._page.controls.append(self.txt_result)
+        self._txt_result = ft.ListView(expand=1, spacing=10, padding=20, auto_scroll=True)
+        self._page.controls.append(self._txt_result)
         self._page.update()
 
     @property
